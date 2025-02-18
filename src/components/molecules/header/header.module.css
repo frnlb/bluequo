@@ -1,0 +1,28 @@
+.wrapper {
+    display: flex;
+    border: 1px solid var(--border-gray);
+    flex-direction: column;
+    height: 844px;
+    max-height: 159px;
+    width: 100%;
+}
+
+.text {
+    display: block;
+    flex: 1
+}
+
+.buttonWrapper {
+    display: flex;
+    width: 100%;
+}
+
+.buttonWrapper > * {
+    flex: 1;
+}
+
+@media screen and (min-width: 768px) {
+    .wrapper {
+        max-height: 100px;
+    }
+}
