@@ -1,1 +1,1 @@
-export type TypographyTag = "h3" | "p";
+export type TypographyTag = "h3" | "p" | "span";
