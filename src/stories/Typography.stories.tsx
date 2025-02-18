@@ -41,17 +41,19 @@ export const Gray: Story = {
   args: {
     variant: "normal",
     color: "gray",
-    children: "normal"
+    children: "gray"
   },
 };
 
 
-export const Variants: Story = {
+export const Case: Story = {
   render: () => (
-    <>
-      <Typography variant="smallTitle" color="black">COLLECTION</Typography>
-      <Typography variant="span" color="gray"> by </Typography>
-      <Typography variant="span" color="black">undergroung</Typography>
-    </>
+    <div>
+      <Typography variant="smallTitle" color="black" align="center">COLLECTION</Typography>
+      <Typography variant="normal" color="black" align="center">
+        <Typography variant="span" color="gray">by </Typography>
+        undergroung
+      </Typography>
+    </div>
   ),
 };

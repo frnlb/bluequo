@@ -1,19 +1,31 @@
 .smallTitle {
     text-transform: uppercase;
     font-size: var(--text-big);
-    color: var(--text-normal);
+    color: var(--text-color-normal);
     font-weight: 400;
 }
 
 .normal {
     font-size: var(--text-normal);
-    color: var(--text-normal);
+    color: var(--text-color-normal);
 }
 
 .gray {
-    color: var(--text-gray);
+    color: var(--text-color-gray);
 }
 
 .black {
-    color: var(--text-normal);
+    color: var(--text-color-normal);
+}
+
+.center {
+    text-align: center;
+}
+
+.start {
+    text-align: start;
+}
+
+.end {
+    text-align: end;
 }

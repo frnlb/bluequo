@@ -45,8 +45,11 @@ h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;
 }
 
+/* custom text styles */
 h3, p, span {
   font-family: 'Inter', sans-serif;
+  color: var(--text-color-normal);
+  line-height: 1.21;
 }
 
 #root, #__next {
