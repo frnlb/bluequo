@@ -1,7 +1,7 @@
 import React from 'react';
-import HeartIcon from './icons/heart.svg';
-import ArrowIcon from './icons/arrow.svg';
-import MagnifyingGlassIcon from './icons/magnifying-glass.svg';
+import HeartIcon from '../../../assets/heart.svg?react';
+import ArrowIcon from '../../../assets/right-arrow.svg?react';
+import MagnifyingGlassIcon from '../../../assets/magnifying-glass.svg?react';
 
 interface IconProps {
   name: 'heart' | 'arrow' | 'magnifying-glass';
