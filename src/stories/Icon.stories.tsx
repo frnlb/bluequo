@@ -1,4 +1,3 @@
-
 import { Icon } from "@/components";
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -9,8 +8,6 @@ const meta: Meta<typeof Icon> = {
 
 export default meta;
 type Story = StoryObj<typeof Icon>;
-
-
 
 export const Heart: Story = {
   render: () => (
