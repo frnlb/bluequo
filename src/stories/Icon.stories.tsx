@@ -12,10 +12,26 @@ type Story = StoryObj<typeof Icon>;
 
 
 
-export const Main: Story = {
+export const Heart: Story = {
   render: () => (
     <div>
       <Icon name='heart' size={50} color='red' />
+    </div>
+  ),
+};
+
+export const Arrow: Story = {
+  render: () => (
+    <div>
+      <Icon name='arrow' size={50} color='red' />
+    </div>
+  ),
+};
+
+export const MagnifyingGlass: Story = {
+  render: () => (
+    <div>
+      <Icon name='magnifying-glass' size={50} color='red' />
     </div>
   ),
 };
