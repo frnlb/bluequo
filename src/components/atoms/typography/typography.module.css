@@ -1,13 +1,15 @@
 .smallTitle {
     text-transform: uppercase;
     font-size: var(--text-big);
-    color: var(--text-color-normal);
     font-weight: 400;
 }
 
 .normal {
     font-size: var(--text-normal);
-    color: var(--text-color-normal);
+}
+
+.tiny {
+    font-size: 0.75rem;
 }
 
 .gray {

@@ -1,4 +1,4 @@
-import { Triangle } from "@/components";
+import { Triangle, Typography } from "@/components";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta: Meta<typeof Triangle> = {
@@ -19,40 +19,19 @@ const meta: Meta<typeof Triangle> = {
 export default meta;
 type Story = StoryObj<typeof Triangle>;
 
-export const normal: Story = {
-  args: {
-    variant: "normal",
-    color: "black",
-    children: "normal"
-  },
-};
 
-export const SmallTitle: Story = {
-  args: {
-    variant: "smallTitle",
-    color: "black",
-    children: "Small Title"
-  },
-};
-
-
-export const Gray: Story = {
-  args: {
-    variant: "normal",
-    color: "gray",
-    children: "gray"
-  },
-};
-
-
-export const Case: Story = {
+export const Mobile: Story = {
   render: () => (
-    <div>
-      <Triangle variant="smallTitle" color="black" align="center">COLLECTION</Triangle>
-      <Triangle variant="normal" color="black" align="center">
-        <Triangle variant="span" color="gray">by </Triangle>
-        undergroung
-      </Triangle>
+    <div style={{ width: "328px", height: "509px", backgroundColor: "green", position: "relative" }}>
+        <Triangle><Typography align="start" variant="normal">28.00 <Typography variant="tiny">€</Typography></Typography></Triangle>
+    </div>
+  ),
+};
+
+export const Desktop: Story = {
+  render: () => (
+    <div style={{ width: "400px", height: "460px", backgroundColor: "green", position: "relative" }}>
+        <Triangle><Typography align="start" variant="normal">28.00 <Typography variant="tiny">€</Typography></Typography></Triangle>
     </div>
   ),
 };

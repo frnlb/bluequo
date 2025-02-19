@@ -1,15 +1,15 @@
 .wrapper {
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 328px;
     height: 509px;
-
+    position: relative;
+    width: 328px;
 }
 
 @media screen and (max-width: 768px) {
     .wrapper {
-     width: 400px;
-    height: 460px;
+        height: 460px;
+        width: 400px;
     }
 }
