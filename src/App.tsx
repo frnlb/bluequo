@@ -1,10 +1,18 @@
 import { useEffect, useRef } from "react";
 import { Card } from "@/components";
 import type { CardData } from "@/interfaces/common";
-import { useInfiniteImages } from "@/hooks/scroll";
+import { useInfiniteImages } from "@/hooks/useInfiniteImages";
 
 function App() {
-  const { loading, error, images, loadMore, hasNextPage } = useInfiniteImages(10);
+  const { loading, error, images, loadMore, hasNextPage, search } = useInfiniteImages(10);
+  const searchInputRef = useRef<HTMLInputElement>(null);
+
+  const handleSearch = (event: React.FormEvent) => {
+    event.preventDefault();
+    if (searchInputRef.current) {
+      search(searchInputRef.current.value);
+    }
+  };
   const loader = useRef(null);
 
   useEffect(() => {

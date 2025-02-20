@@ -3,19 +3,18 @@ import { useState, useEffect } from "react";
 import { GET_IMAGES } from "@/lib/graphql/queries";
 
 interface ImageEdge {
-    node: {
-      author: string;
-      createdAt: string;
-      id: string;
-      liked: boolean;
-      likesCount: number;
-      picture: string;
-      price: number;
-      title: string;
-      updatedAt: string;
-    };
-  }
-  
+  node: {
+    author: string;
+    createdAt: string;
+    id: string;
+    liked: boolean;
+    likesCount: number;
+    picture: string;
+    price: number;
+    title: string;
+    updatedAt: string;
+  };
+}
 
 interface Image {
   author: string;
@@ -31,8 +30,9 @@ interface Image {
 
 export function useInfiniteImages(imagesPerPage: number = 10) {
   const [images, setImages] = useState<Image[]>([]);
+  const [searchTerm, setSearchTerm] = useState<string>('');
   const { loading, error, data, fetchMore } = useQuery(GET_IMAGES, {
-    variables: { first: imagesPerPage },
+    variables: { first: imagesPerPage, title: searchTerm },
   });
 
   useEffect(() => {
@@ -45,6 +45,7 @@ export function useInfiniteImages(imagesPerPage: number = 10) {
     fetchMore({
       variables: {
         after: data.images.pageInfo.endCursor,
+        title: searchTerm,
       },
     }).then((fetchMoreResult) => {
       const newImages = fetchMoreResult.data.images.edges.map((edge: ImageEdge) => edge.node);
@@ -52,5 +53,17 @@ export function useInfiniteImages(imagesPerPage: number = 10) {
     });
   };
 
-  return { loading, error, images, loadMore, hasNextPage: data?.images?.pageInfo?.hasNextPage };
+  const search = (term: string) => {
+    setSearchTerm(term);
+    setImages([]);
+  };
+
+  return { 
+    loading, 
+    error, 
+    images, 
+    loadMore, 
+    search,
+    hasNextPage: data?.images?.pageInfo?.hasNextPage 
+  };
 }
