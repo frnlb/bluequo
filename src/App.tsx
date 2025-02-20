@@ -1,35 +1,46 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useRef } from "react";
+import { Card } from "@/components";
+import type { CardData } from "@/interfaces/common";
+import { useInfiniteImages } from "@/hooks/scroll";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { loading, error, images, loadMore, hasNextPage } = useInfiniteImages(10);
+  const loader = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      entries => {
+        if (entries[0].isIntersecting && hasNextPage) {
+          loadMore();
+        }
+      },
+      { threshold: 1.0 }
+    );
+
+    if (loader.current) {
+      observer.observe(loader.current);
+    }
+
+    return () => observer.disconnect();
+  }, [hasNextPage, loadMore]);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div>
+      {images.map((item: Partial<CardData>, index) => (
+        <Card 
+          key={`${item.id}-${index}`}
+          alt={item.title ?? ""}
+          src={item.picture ?? ""}
+          artist={item.author ?? ""} 
+          title={item.title ?? ""}   
+        />
+      ))}
+      {hasNextPage && <div ref={loader}>Loading more...</div>}
+    </div>
+  );
 }
 
-export default App
+export default App;
