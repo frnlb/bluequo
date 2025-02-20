@@ -6,7 +6,7 @@ import MagnifyingGlassIcon from '../../../assets/magnifying-glass.svg?react';
 interface IconProps {
   name: 'heart' | 'arrow' | 'magnifying-glass';
   size?: number;
-  color?: string;
+  color?: "inherit" | string;
 }
 
 const iconMap = {
@@ -15,7 +15,7 @@ const iconMap = {
   'magnifying-glass': MagnifyingGlassIcon,
 };
 
-export const Icon: React.FC<IconProps> = ({ name, size = 24, color = 'currentColor' }) => {
+export const Icon: React.FC<IconProps> = ({ name, size = 18, color = 'currentColor' }) => {
   const SVGIcon = iconMap[name];
 
   return <SVGIcon width={size} height={size} fill={color} />;

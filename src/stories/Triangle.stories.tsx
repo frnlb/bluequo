@@ -4,16 +4,6 @@ import type { Meta, StoryObj } from "@storybook/react";
 const meta: Meta<typeof Triangle> = {
   title: "Atoms/Triangle",
   component: Triangle,
-  argTypes: {
-    variant: {
-      control: "select",
-      options: ["smallTitle", "normal", "span"],
-    },
-    color: {
-      control: "select",
-      options: ["black", "gray"],
-    },
-  },
 };
 
 export default meta;

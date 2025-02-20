@@ -1,7 +1,9 @@
 .wrapper {
-    display: inline-flex;
     background-color: transparent;
     border: none;
+    color: inherit;
+    display: inline-flex;
+    width: fit-content;
 }
 
 .wrapper:hover {

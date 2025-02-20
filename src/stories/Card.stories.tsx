@@ -1,4 +1,4 @@
-import { Card } from "@/components";
+import { Button, Icon, Typography, Card } from "@/components";
 import type { Meta, StoryObj } from "@storybook/react";
 import CollectionImage from "./assets/96be26bddb674f9c286175c263fdef67.jpeg";
 
@@ -20,36 +20,25 @@ const meta: Meta<typeof Card> = {
 export default meta;
 type Story = StoryObj<typeof Card>;
 
-export const normal: Story = {
-  args: {
-    variant: "normal",
-    color: "black",
-    children: "normal"
-  },
-};
 
-export const SmallTitle: Story = {
-  args: {
-    variant: "smallTitle",
-    color: "black",
-    children: "Small Title"
-  },
-};
-
-
-export const Gray: Story = {
-  args: {
-    variant: "normal",
-    color: "gray",
-    children: "gray"
-  },
-};
-
-
-export const Case: Story = {
+export const Desktop: Story = {
   render: () => (
     <div>
-      <Card alt="" src={CollectionImage} title="collection" artist="undergroung" price="28.00 €"/>
+            <Card alt="" src={CollectionImage} title="collection" artist="undergroung" price="28.00 €">
+                <Button onClick={()=> console.log("clicked")}><Typography variant="normal" color="inherit">1 </Typography><Icon name="heart"/></Button>
+              <Button onClick={()=> console.log("clicked")}><Typography variant="normal" color="inherit">0 </Typography><Icon name="arrow"/></Button>
+      </Card>
+    </div>
+  ),
+};
+
+export const Mobile: Story = {
+  render: () => (
+    <div>
+      <Card alt="" src={CollectionImage} title="collection" artist="undergroung">
+          <Button onClick={()=> console.log("clicked")}><Typography variant="normal" color="inherit">1 </Typography><Icon name="heart"/></Button>
+              <Button onClick={()=> console.log("clicked")}><Typography variant="normal" color="inherit">0 </Typography><Icon name="arrow"/></Button>
+      </Card>
     </div>
   ),
 };

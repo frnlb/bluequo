@@ -4,7 +4,7 @@ import { JSX } from "react";
 
 export interface TypographyProps {
     variant?: "smallTitle" | "normal" | "span" | "tiny";
-    color?: "black" | "gray";
+    color?: "black" | "gray" | "inherit";
     align?: "start" | "center" | "end";
     children: string | JSX.Element | JSX.Element[] | (string | JSX.Element)[];
 }

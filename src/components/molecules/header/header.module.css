@@ -1,6 +1,9 @@
 .wrapper {
+    --header-borders: 1px solid var(--border-gray);
     display: flex;
-    border: 1px solid var(--border-gray);
+    justify-content: center;
+    justify-items: center;
+    border: var(--header-borders);
     flex-direction: column;
     height: 844px;
     max-height: 159px;
@@ -9,7 +12,7 @@
 
 .text {
     display: block;
-    flex: 1
+    margin: auto;
 }
 
 .buttonWrapper {
@@ -17,12 +20,41 @@
     width: 100%;
 }
 
+.buttonWrapper> *:first-child {
+    border-right: var(--header-borders);
+}
+
 .buttonWrapper > * {
     flex: 1;
+    display: flex;
+    height: 57px;
+    border-top: var(--header-borders);
+    align-items: center;
+    justify-content: center;
 }
 
 @media screen and (min-width: 768px) {
     .wrapper {
-        max-height: 100px;
+        height: 100px;
+        color: white;
+    }
+
+    .buttonWrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        position: absolute;
+        left: 88%;
+        top: 65%;
+    }
+
+    .buttonWrapper> * {
+        display: flex;
+        flex-direction: column;
+        border-top: none;
+    }
+
+    .buttonWrapper> *:first-child {
+        border-right: none;
     }
 }

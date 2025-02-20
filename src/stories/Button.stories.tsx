@@ -1,5 +1,5 @@
 
-import { Button } from "@/components";
+import { Button, Typography } from "@/components";
 import { Icon } from "@/components";
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -24,7 +24,9 @@ export const Main: Story = {
 export const Heart: Story = {
   render: () => (
     <div>
-      <Button onClick={()=> console.log("clicked")}><Icon name="heart"/></Button>
+      <Button onClick={()=> console.log("clicked")}>
+        <Typography variant="normal">1 </Typography>
+        <Icon name="heart"/></Button>
     </div>
   ),
 };
@@ -40,7 +42,9 @@ export const MagnifyingGlass: Story = {
 export const Arrow: Story = {
   render: () => (
     <div>
-      <Button onClick={()=> console.log("clicked")}><Icon name="arrow"/></Button>
+      <Button onClick={()=> console.log("clicked")}>
+      <Typography variant="normal">0 </Typography>
+        <Icon name="arrow"/></Button>
       </div>
   ),
 };

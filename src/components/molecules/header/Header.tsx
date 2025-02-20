@@ -5,9 +5,10 @@ export interface HeaderProps {
   title: string;
   span?: string;
   artist: string;
+  children?: React.ReactNode | React.ReactNode[];
 }
 
-export const Header = ({title, span = "by", artist }: HeaderProps) => {
+export const Header = ({title, span = "by", artist, children }: HeaderProps) => {
   return (
     <div className={styles.wrapper}>
         <div className={styles.text}>
@@ -18,10 +19,8 @@ export const Header = ({title, span = "by", artist }: HeaderProps) => {
         </Typography>
         </div>
         <div className={styles.buttonWrapper}>
-            <button>hi</button>
-
-        <button>hi</button>
-            </div>
+            {children}
+        </div>
     </div>
   )
 }
