@@ -1,0 +1,27 @@
+.wrapper {
+    width: 270px;
+}
+  
+.inputWrapper {
+    display: flex;
+    align-items: center;
+}
+  
+.searchBar {
+    background-color: var(--search-bg);
+    border: none;
+    border-radius: 1rem;
+    font-family: "Inter", sans-serif;
+    font-size: 1rem;
+    padding: 0 0 0 2rem;
+    position: relative;
+    width: 100%;
+}
+  
+button {
+    position: absolute;
+    left: 1rem;
+    top: 0;
+    transform: translateY(90%);
+    z-index: 10;
+}
