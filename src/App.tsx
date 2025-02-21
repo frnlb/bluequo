@@ -1,11 +1,11 @@
 import { useEffect, useRef } from "react";
-import { Button, Card, CardsWrapper, CaseCard, PageHeader } from "@/components";
+import { CardsWrapper, CaseCard, PageHeader } from "@/components";
 import type { CardData } from "@/interfaces/common";
 import { useInfiniteImages } from "@/hooks/useInfiniteImages";
 
 
 function App() {
-  const { loading, error, images, loadMore, hasNextPage, search } = useInfiniteImages(10);
+  const { loading, error, images, loadMore, hasNextPage, search, handleLike } = useInfiniteImages(10);
   const searchInputRef = useRef<HTMLInputElement>(null);
 
   const handleSearch = (event: React.FormEvent) => {
@@ -46,9 +46,11 @@ function App() {
           alt={item.title ?? ""}
           src={item.picture ?? ""}
           artist={item.author ?? ""}
-          title={item.title ?? ""} like={0} visit={0}
-          handleLike={() => console.log("hi")} 
-          handleVisit={()=> console.log("hi")} />
+          title={item.title ?? ""} 
+          visit={0}
+          like={item.likesCount ?? 0}
+          handleLike={async () => {const newLikeCount = await handleLike(item.id ?? "");}}
+          handleVisit={() => console.log("hi")} liked={false} />
       ))}
       {hasNextPage && <div ref={loader}>Loading more...</div>}
     </CardsWrapper>

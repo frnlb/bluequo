@@ -1,6 +1,6 @@
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation  } from "@apollo/client";
 import { useState, useEffect } from "react";
-import { GET_IMAGES } from "@/lib/graphql/queries";
+import { GET_IMAGES, LIKE_IMAGE  } from "@/lib/graphql/queries";
 
 interface ImageEdge {
   node: {
@@ -58,12 +58,43 @@ export function useInfiniteImages(imagesPerPage: number = 10) {
     setImages([]);
   };
 
+  // handleLike functionality
+  const [likeImage] = useMutation(LIKE_IMAGE);
+
+  const handleLike = async (imageId: string) => {
+    try {
+      const { data } = await likeImage({
+        variables: { input: { imageId } },
+        update: (cache, { data: likeData }) => {
+          const likedImage = likeData.likeImage.image;
+          cache.modify({
+            id: cache.identify(likedImage),
+            fields: {
+              liked: () => likedImage.liked,
+              likesCount: () => likedImage.likesCount,
+            },
+          });
+        },
+      });
+      const updatedImage = data.likeImage.image;
+      setImages(images.map(img => 
+        img.id === imageId ? { ...img, liked: updatedImage.liked, likesCount: updatedImage.likesCount } : img
+      ));
+  
+      return updatedImage.likesCount;
+    } catch (error) {
+      console.error("Error liking image:", error);
+      return null;
+    }
+  };
+
   return { 
     loading, 
     error, 
     images, 
     loadMore, 
     search,
-    hasNextPage: data?.images?.pageInfo?.hasNextPage 
+    hasNextPage: data?.images?.pageInfo?.hasNextPage,
+    handleLike
   };
 }
