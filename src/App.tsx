@@ -50,7 +50,7 @@ function App() {
               }
               return null;
             }}
-            handleVisit={() => console.log("hi")} 
+            handleVisit={() => console.log("visit here")} 
             liked={false} 
           />
         ))}
