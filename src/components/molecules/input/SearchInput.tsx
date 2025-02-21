@@ -26,7 +26,6 @@ export const SearchInput: React.FC<SearchInputProps> = ({ handleSearch, placehol
         placeholder={placeholder} 
         className={styles.searchBar}
       />
-      
     </form>
   );
 };

@@ -3,18 +3,13 @@ import { CardsWrapper, CaseCard, PageHeader } from "@/components";
 import type { CardData } from "@/interfaces/common";
 import { useInfiniteImages } from "@/hooks/useInfiniteImages";
 
-
 function App() {
   const { loading, error, images, loadMore, hasNextPage, search, handleLike } = useInfiniteImages(10);
-  const searchInputRef = useRef<HTMLInputElement>(null);
-
-  const handleSearch = (event: React.FormEvent) => {
-    event.preventDefault();
-    if (searchInputRef.current) {
-      search(searchInputRef.current.value);
-    }
-  };
   const loader = useRef(null);
+
+  const handleSearch = (searchTerm: string) => {
+    search(searchTerm);
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -38,29 +33,30 @@ function App() {
 
   return (
     <>
-    <PageHeader handleSearch={handleSearch}/>
-    <CardsWrapper>
-      {images.map((item: Partial<CardData>, index) => (
-        <CaseCard 
-          key={`${item.id}-${index}`}
-          alt={item.title ?? ""}
-          src={item.picture ?? ""}
-          artist={item.author ?? ""}
-          title={item.title ?? ""} 
-          visit={0}
-          like={item.likesCount ?? 0}
-          handleLike={async () => {
-            if (item.id) {
-              return await handleLike(item.id);
-            }
-            return null;
-          }}
-          handleVisit={() => console.log("hi")} liked={false} />
-      ))}
-      {hasNextPage && <div ref={loader}>Loading more...</div>}
-    </CardsWrapper>
+      <PageHeader handleSearch={handleSearch}/>
+      <CardsWrapper>
+        {images.map((item: Partial<CardData>, index) => (
+          <CaseCard 
+            key={`${item.id}-${index}`}
+            alt={item.title ?? ""}
+            src={item.picture ?? ""}
+            artist={item.author ?? ""}
+            title={item.title ?? ""} 
+            visit={0}
+            like={item.likesCount ?? 0}
+            handleLike={async () => {
+              if (item.id) {
+                return await handleLike(item.id);
+              }
+              return null;
+            }}
+            handleVisit={() => console.log("hi")} 
+            liked={false} 
+          />
+        ))}
+        {hasNextPage && <div ref={loader}>Loading more...</div>}
+      </CardsWrapper>
     </>
-
   );
 }
 
