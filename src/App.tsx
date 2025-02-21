@@ -49,7 +49,12 @@ function App() {
           title={item.title ?? ""} 
           visit={0}
           like={item.likesCount ?? 0}
-          handleLike={async () => {const newLikeCount = await handleLike(item.id ?? "");}}
+          handleLike={async () => {
+            if (item.id) {
+              return await handleLike(item.id);
+            }
+            return null;
+          }}
           handleVisit={() => console.log("hi")} liked={false} />
       ))}
       {hasNextPage && <div ref={loader}>Loading more...</div>}
