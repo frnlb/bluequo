@@ -1,6 +1,6 @@
 .wrapper {
     height: 25%;
-    background-color: var(--card-container-bg);
+    background-color: var(--triangle-color);
     position: absolute;
     top: 0;
     left: 0;
