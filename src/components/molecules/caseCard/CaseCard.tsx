@@ -21,11 +21,11 @@ export const CaseCard = ({
   return (
     <Card alt={alt} src={src} title={title} artist={artist} price={price}>
       <Button onClick={handleLike}>
-          <Typography variant="normal">{like.toString()} {" "}</Typography>
+          <Typography variant="normal" color="inherit">{like.toString()} {" "}</Typography>
           <Icon name="heart" />
       </Button>
       <Button onClick={handleVisit}>
-        <Typography variant="normal">{visit.toString()} {" "}</Typography>
+        <Typography color="inherit" variant="normal">{visit.toString()} {" "}</Typography>
         <Icon name="arrow"/>
     </Button>
     </Card>
