@@ -1,0 +1,21 @@
+.headerWrapper {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.logoWrapper {
+    align-items: center;
+    display: flex;
+    height: 13.86px;
+    width: 80px;
+}
+
+@media screen and (min-width: 768px) {
+    .logoWrapper {
+        height: 24px;
+        width: 138.53px;
+    }
+    
+}

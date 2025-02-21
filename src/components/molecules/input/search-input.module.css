@@ -1,10 +1,11 @@
 .wrapper {
     width: 270px;
+    position: relative;
 }
   
 .inputWrapper {
-    display: flex;
     align-items: center;
+    display: flex;
 }
   
 .searchBar {
@@ -14,14 +15,13 @@
     font-family: "Inter", sans-serif;
     font-size: 1rem;
     padding: 0 0 0 2rem;
-    position: relative;
     width: 100%;
 }
   
 .wrapper > button {
     position: absolute;
-    left: 1rem;
+    left: 0;
     top: 0;
-    transform: translateY(90%);
+    transform: translateY(13%);
     z-index: 10;
 }
