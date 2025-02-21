@@ -1,15 +1,20 @@
 .cardWrapper {
+    align-content: center;
     display: flex;
-    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
     flex-direction: column;
     padding: 2rem;
     gap: 2rem;
     background-color: var(--card-container-bg);
+    margin-top: var(--page-header-height);
+    width: 100%;
 }
 
 @media screen and (min-width: 768px) {
     .cardWrapper {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(var(--card-width-desktop), 1fr));
+        gap: 2rem;
     }
 }

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Button, Card, CardsWrapper } from "@/components";
+import { Button, Card, CardsWrapper, CaseCard, PageHeader } from "@/components";
 import type { CardData } from "@/interfaces/common";
 import { useInfiniteImages } from "@/hooks/useInfiniteImages";
 
@@ -37,21 +37,23 @@ function App() {
   if (error) return <p>Error: {error.message}</p>;
 
   return (
+    <>
+    <PageHeader handleSearch={handleSearch}/>
     <CardsWrapper>
       {images.map((item: Partial<CardData>, index) => (
-        <Card 
+        <CaseCard 
           key={`${item.id}-${index}`}
           alt={item.title ?? ""}
           src={item.picture ?? ""}
-          artist={item.author ?? ""} 
-          title={item.title ?? ""}   
-        >
-          <Button onClick={()=> console.log("clicked")}>{}</Button>
-          <Button onClick={()=> console.log("clicked")}>{}</Button>
-          </Card>
+          artist={item.author ?? ""}
+          title={item.title ?? ""} like={0} visit={0}
+          handleLike={() => console.log("hi")} 
+          handleVisit={()=> console.log("hi")} />
       ))}
       {hasNextPage && <div ref={loader}>Loading more...</div>}
     </CardsWrapper>
+    </>
+
   );
 }
 

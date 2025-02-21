@@ -1,18 +1,21 @@
-.wrapper {
+.cardHeaderWrapper {
     --header-borders: 1px solid var(--border-gray);
+    border: var(--header-borders);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     justify-items: center;
-    border: var(--header-borders);
-    flex-direction: column;
-    height: 844px;
-    max-height: 159px;
+    min-height: fit-content;
     width: 100%;
 }
 
-.text {
-    display: block;
-    margin: auto;
+.textWrapper {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100px;
+    height: fit-content;
+    justify-content: center;
 }
 
 .buttonWrapper {
@@ -25,18 +28,18 @@
 }
 
 .buttonWrapper > * {
-    flex: 1;
-    display: flex;
-    height: 57px;
-    border-top: var(--header-borders);
     align-items: center;
+    border-top: var(--header-borders);
+    display: flex;
+    flex: 1;
+    height: 57px;
     justify-content: center;
 }
 
 @media screen and (min-width: 768px) {
-    .wrapper {
-        height: 100px;
+    .cardHeaderWrapper {
         color: white;
+        height: 100px;
     }
 
     .buttonWrapper {
@@ -49,9 +52,9 @@
     }
 
     .buttonWrapper> * {
+        border-top: none;
         display: flex;
         flex-direction: column;
-        border-top: none;
     }
 
     .buttonWrapper> *:first-child {

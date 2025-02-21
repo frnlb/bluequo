@@ -1,19 +1,30 @@
 .headerWrapper {
     align-items: center;
+    background-color: white;
     display: flex;
+    height: var(--page-header-height);
     justify-content: space-between;
-    padding: 1rem;
+    padding: 2rem;
+    position: fixed;
+    top:0;
+    width:100%;
+    z-index: 100;
 }
 
 .logoWrapper {
     align-items: center;
+    position: fixed;
+    top:1rem;
+    left: 1rem;
     display: flex;
     height: 13.86px;
     width: 80px;
+    min-width: 80px;
 }
 
 @media screen and (min-width: 768px) {
     .logoWrapper {
+        position: static;
         height: 24px;
         width: 138.53px;
     }

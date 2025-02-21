@@ -9,7 +9,7 @@
 
 @media screen and (min-width: 768px) {
     .wrapper {
-        height: 460px;
+        min-height: 460px;
         width: var(--card-width-desktop);
     }
 }

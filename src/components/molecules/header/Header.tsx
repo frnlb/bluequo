@@ -10,8 +10,8 @@ export interface HeaderProps {
 
 export const Header = ({title, span = "by", artist, children }: HeaderProps) => {
   return (
-    <div className={styles.wrapper}>
-        <div className={styles.text}>
+    <div className={styles.cardHeaderWrapper}>
+        <div className={styles.textWrapper}>
         <Typography variant="smallTitle" color="black" align="center">{title}</Typography>
         <Typography variant="normal" color="black" align="center">
             <Typography variant="span" color="gray">{span} </Typography>

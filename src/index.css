@@ -11,8 +11,12 @@
   --text-big: 1.75rem;
   --text-normal: 1rem;
   --cards-wrapper-gap: 2rem;
+  /* card */	
   --card-width-desktop: 400px;
   --card-width-mobile: 328px;
+  /* header */
+  --page-header-height: 7.5rem;
+
 }
 
 *, *::before, *::after {
