@@ -1,5 +1,5 @@
-export const CardsWrapper = () => {
+export const CardsWrapper = ({children}: {children: React.ReactNode | React.ReactNode[]}) => {
   return (
-    <div>CardsWrapper</div>
+    <div>{children}</div>
   )
 }

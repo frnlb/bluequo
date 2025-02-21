@@ -24,9 +24,9 @@ type Story = StoryObj<typeof Card>;
 export const Desktop: Story = {
   render: () => (
     <div>
-            <Card alt="" src={CollectionImage} title="collection" artist="undergroung" price="28.00 €">
-                <Button onClick={()=> console.log("clicked")}><Typography variant="normal" color="inherit">1 </Typography><Icon name="heart"/></Button>
-              <Button onClick={()=> console.log("clicked")}><Typography variant="normal" color="inherit">0 </Typography><Icon name="arrow"/></Button>
+        <Card alt="" src={CollectionImage} title="collection" artist="undergroung" price="28.00 €">
+          <Button onClick={()=> console.log("clicked")}><Typography variant="normal" color="inherit">1 </Typography><Icon name="heart"/></Button>
+          <Button onClick={()=> console.log("clicked")}><Typography variant="normal" color="inherit">0 </Typography><Icon name="arrow"/></Button>
       </Card>
     </div>
   ),
@@ -36,7 +36,7 @@ export const Mobile: Story = {
   render: () => (
     <div>
       <Card alt="" src={CollectionImage} title="collection" artist="undergroung">
-          <Button onClick={()=> console.log("clicked")}><Typography variant="normal" color="inherit">1 </Typography><Icon name="heart"/></Button>
+              <Button onClick={()=> console.log("clicked")}><Typography variant="normal" color="inherit">1 </Typography><Icon name="heart"/></Button>
               <Button onClick={()=> console.log("clicked")}><Typography variant="normal" color="inherit">0 </Typography><Icon name="arrow"/></Button>
       </Card>
     </div>

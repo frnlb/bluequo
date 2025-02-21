@@ -1,7 +1,8 @@
 import { useEffect, useRef } from "react";
-import { Card } from "@/components";
+import { Button, Card, CardsWrapper } from "@/components";
 import type { CardData } from "@/interfaces/common";
 import { useInfiniteImages } from "@/hooks/useInfiniteImages";
+
 
 function App() {
   const { loading, error, images, loadMore, hasNextPage, search } = useInfiniteImages(10);
@@ -36,7 +37,7 @@ function App() {
   if (error) return <p>Error: {error.message}</p>;
 
   return (
-    <div>
+    <CardsWrapper>
       {images.map((item: Partial<CardData>, index) => (
         <Card 
           key={`${item.id}-${index}`}
@@ -44,10 +45,13 @@ function App() {
           src={item.picture ?? ""}
           artist={item.author ?? ""} 
           title={item.title ?? ""}   
-        />
+        >
+          <Button onClick={()=> console.log("clicked")}>{}</Button>
+          <Button onClick={()=> console.log("clicked")}>{}</Button>
+          </Card>
       ))}
       {hasNextPage && <div ref={loader}>Loading more...</div>}
-    </div>
+    </CardsWrapper>
   );
 }
 
