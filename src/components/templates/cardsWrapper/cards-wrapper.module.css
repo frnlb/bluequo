@@ -1,14 +1,15 @@
 .cardWrapper {
     display: flex;
+    width: 100%;
     flex-direction: column;
     padding: 2rem;
-    gap: 1rem;
+    gap: 2rem;
+    background-color: var(--card-container-bg);
 }
 
 @media screen and (min-width: 768px) {
     .cardWrapper {
-        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-        gap: 1rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(var(--card-width-desktop), 1fr));
     }
-    
 }

@@ -4,12 +4,12 @@
     flex-direction: column;
     height: 509px;
     position: relative;
-    width: 328px;
+    width: var(--card-width-mobile);
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) {
     .wrapper {
         height: 460px;
-        width: 400px;
+        width: var(--card-width-desktop);
     }
 }

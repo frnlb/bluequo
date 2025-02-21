@@ -18,16 +18,14 @@ export const Case: Story = {
   render: () => (
     <div>
       <CaseCard 
-        align="center"
         alt=""
         src={CollectionImage}
         title="collection"
         artist="undergroung"
-        handleLike={()=> console.log("liked")}
-        handleVisit={()=> console.log("visited")}
+        handleLike={() => console.log("liked")}
+        handleVisit={() => console.log("visited")}
         like={1}
-        price="28.00 €"
-    />
+        price="28.00 €" visit={0}    />
     </div>
   ),
 };

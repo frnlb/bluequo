@@ -10,6 +10,9 @@
   /* text-size */
   --text-big: 1.75rem;
   --text-normal: 1rem;
+  --cards-wrapper-gap: 2rem;
+  --card-width-desktop: 400px;
+  --card-width-mobile: 328px;
 }
 
 *, *::before, *::after {
